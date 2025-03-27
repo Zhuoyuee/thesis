@@ -13,7 +13,7 @@ int main ()
 {
     pcl::search::Search<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB>);
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);
-    if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("/mnt/c/Users/wangz/thesis/pcl/aula_sep.pcd", *cloud) == -1)
+    if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("/mnt/c/Users/www/Documents/thesis/aula_downsampled_005 .pcd", *cloud) == -1)
     {
         std::cout << "Cloud reading failed." << std::endl;
         return -1;
@@ -51,7 +51,7 @@ int main ()
     }
 
     // Save the modified cloud to a PLY file
-    if (pcl::io::savePLYFileBinary("/mnt/c/Users/wangz/thesis/pcl/aula_region_growth_rgb.ply", *cloud) == -1) {
+    if (pcl::io::savePLYFileBinary("/mnt/c/Users/www/Documents/thesis/aula_sep_008.ply", *cloud) == -1) {
         std::cerr << "Failed to save the PLY file!" << std::endl;
         return -1;
     }

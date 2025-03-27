@@ -24,3 +24,6 @@ target_link_libraries(region_rgb_segmentation ${PCL_LIBRARIES})
 
 add_executable(pcd_to_ply pcd_to_ply.cpp)
 target_link_libraries(pcd_to_ply ${PCL_LIBRARIES})
+
+add_executable(downsampling downsampling.cpp)
+target_link_libraries(downsampling ${PCL_LIBRARIES})

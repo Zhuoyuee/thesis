@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/wangz/thesis/thesis/pcl/region_rgb_segmentation.cpp" "CMakeFiles/region_rgb_segmentation.dir/region_rgb_segmentation.cpp.o" "gcc" "CMakeFiles/region_rgb_segmentation.dir/region_rgb_segmentation.cpp.o.d"
+  "/mnt/c/Users/www/Documents/thesis/thesis/pcl/region_rgb_segmentation.cpp" "CMakeFiles/region_rgb_segmentation.dir/region_rgb_segmentation.cpp.o" "gcc" "CMakeFiles/region_rgb_segmentation.dir/region_rgb_segmentation.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
