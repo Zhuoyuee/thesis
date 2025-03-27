@@ -1,29 +1,28 @@
 #include <iostream>
-#include <thread>
 #include <vector>
+
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/io/ply_io.h>
 #include <pcl/search/search.h>
 #include <pcl/search/kdtree.h>
-#include <pcl/visualization/cloud_viewer.h>
-#include <pcl/filters/filter_indices.h>
+#include <pcl/filters/filter_indices.h> // for pcl::removeNaNFromPointCloud
 #include <pcl/segmentation/region_growing_rgb.h>
-
-using namespace std::chrono_literals;
 
 int main ()
 {
     pcl::search::Search<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB>);
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);
-    if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("/mnt/c/Users/wangz/thesis/pcl/aula_spc_test1.pcd", *cloud) == -1)
+    if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("/mnt/c/Users/wangz/thesis/pcl/aula_sep.pcd", *cloud) == -1)
     {
         std::cout << "Cloud reading failed." << std::endl;
         return -1;
     }
+    std::cout << "Loaded " << cloud->points.size() << " points." << std::endl;
 
     pcl::IndicesPtr indices (new std::vector<int>);
     pcl::removeNaNFromPointCloud(*cloud, *indices);
+    std::cout << "Removed NaNs, remaining " << indices->size() << " valid points." << std::endl;
 
     pcl::RegionGrowingRGB<pcl::PointXYZRGB> reg;
     reg.setInputCloud(cloud);
@@ -36,6 +35,7 @@ int main ()
 
     std::vector<pcl::PointIndices> clusters;
     reg.extract(clusters);
+    std::cout << "Found " << clusters.size() << " clusters." << std::endl;
 
     // Manually coloring the clusters
     for (size_t i = 0; i < clusters.size(); ++i) {
@@ -51,13 +51,11 @@ int main ()
     }
 
     // Save the modified cloud to a PLY file
-    pcl::io::savePLYFileBinary("/mnt/c/Users/wangz/thesis/pcl/aula_spc_test2.ply", *cloud);
-
-    pcl::visualization::CloudViewer viewer("Cluster viewer");
-    viewer.showCloud(cloud);
-    while (!viewer.wasStopped()) {
-        std::this_thread::sleep_for(100us);
+    if (pcl::io::savePLYFileBinary("/mnt/c/Users/wangz/thesis/pcl/aula_region_growth_rgb.ply", *cloud) == -1) {
+        std::cerr << "Failed to save the PLY file!" << std::endl;
+        return -1;
     }
+    std::cout << "Segmented colored cloud saved to 'aula_region_growth_rgb.ply'." << std::endl;
 
     return 0;
 }

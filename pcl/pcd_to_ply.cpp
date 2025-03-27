@@ -8,13 +8,13 @@ int main() {
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
 
     // Load the PCD file
-    if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("/mnt/c/Users/wangz/thesis/pcl/aula_spc_test1.pcd", *cloud) == -1) {
+    if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("/mnt/c/Users/wangz/thesis/pcl/aula_region_growth_rgb.pcd", *cloud) == -1) {
         std::cerr << "Failed to load the PCD file!" << std::endl;
         return -1;
     }
 
     // Save to PLY
-    if (pcl::io::savePLYFileBinary("/mnt/c/Users/wangz/thesis/pcl/aula_spc_test1.ply", *cloud) == -1) {
+    if (pcl::io::savePLYFileBinary("/mnt/c/Users/wangz/thesis/pcl/aula_rgrgb.ply", *cloud) == -1) {
         std::cerr << "Failed to save the PLY file!" << std::endl;
         return -1;
     }

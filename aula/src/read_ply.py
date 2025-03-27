@@ -65,8 +65,8 @@ def inspect_ply_with_normals_check(file_path):
 
     print("\n--- End of Inspection ---")
 
-# Example usage
-inspect_ply_with_normals_check(r"C:\Users\www\Desktop\thesis\Share\AULA.ply")
+# # Example usage
+# inspect_ply_with_normals_check(r"C:\Users\www\Desktop\thesis\Share\AULA.ply")
 
 
 
@@ -74,3 +74,42 @@ inspect_ply_with_normals_check(r"C:\Users\www\Desktop\thesis\Share\AULA.ply")
 #read_ply(r"C:\Users\www\Desktop\thesis\Share\AULA.ply")
 
 #Attributes: ('x', 'y', 'z', 'nx', 'ny', 'nz', 'f_dc_0', 'f_dc_1', 'f_dc_2', 'f_rest_0', 'f_rest_1', 'f_rest_2', 'f_rest_3', 'f_rest_4', 'f_rest_5', 'f_rest_6', 'f_rest_7', 'f_rest_8', 'f_rest_9', 'f_rest_10', 'f_rest_11', 'f_rest_12', 'f_rest_13', 'f_rest_14', 'f_rest_15', 'f_rest_16', 'f_rest_17', 'f_rest_18', 'f_rest_19', 'f_rest_20', 'f_rest_21', 'f_rest_22', 'f_rest_23', 'f_rest_24', 'f_rest_25', 'f_rest_26', 'f_rest_27', 'f_rest_28', 'f_rest_29', 'f_rest_30', 'f_rest_31', 'f_rest_32', 'f_rest_33', 'f_rest_34', 'f_rest_35', 'f_rest_36', 'f_rest_37', 'f_rest_38', 'f_rest_39', 'f_rest_40', 'f_rest_41', 'f_rest_42', 'f_rest_43', 'f_rest_44', 'opacity', 'scale_0', 'scale_1', 'scale_2', 'rot_0', 'rot_1', 'rot_2', 'rot_3')
+
+def inspect_ply_structure(ply_file):
+    with open(ply_file, "rb") as f:
+        content = f.read()
+
+    header_end = content.find(b'end_header\n')
+    if header_end == -1:
+        print("❌ Could not find PLY header.")
+        return
+
+    header = content[:header_end].decode("ascii", errors="replace").splitlines()
+    data = content[header_end + len(b'end_header\n'):]
+
+    print("=== PLY HEADER ===")
+    for line in header:
+        print(line)
+
+    print("\n=== Point Format ===")
+    properties = [line for line in header if line.startswith("property")]
+    for p in properties:
+        print(p)
+
+    format_line = next((line for line in header if line.startswith("format")), "format unknown")
+    print(f"\nFormat: {format_line}")
+
+    if b'\n' in data[:100]:
+        print("\n⚠ This PLY might be ASCII — but contains strange characters.")
+    else:
+        print("\n✅ This PLY is likely binary (safe from encoding issues).")
+
+    data_start_offset = header_end + len(b'end_header\n')
+    print()
+    print("🔎 Raw data starts at byte offset:", data_start_offset)
+    print("📦 Total file size:", len(content), "bytes")
+
+# Example usage
+inspect_ply_structure("C:/Users/wangz/thesis/pcl/aula_spc_test1.ply")
+
+

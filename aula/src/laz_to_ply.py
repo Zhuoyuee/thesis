@@ -1,29 +1,55 @@
 import pdal
 import json
+import numpy as np
+from plyfile import PlyData, PlyElement
 
+def laz_to_ply_pcl_style(input_laz, output_ply):
+    import pdal
+    import numpy as np
+    from plyfile import PlyData, PlyElement
+    import json
 
-def convert_laz_to_ply(input_laz, output_ply):
-    """
-    Converts a LAZ file to PLY format using PDAL.
-
-    Parameters:
-    - input_laz (str): Path to input LAZ file.
-    - output_ply (str): Path to save the PLY file.
-    """
     pipeline_json = {
-        "pipeline": [
-            {"type": "readers.las", "filename": input_laz},
-            {"type": "writers.ply", "filename": output_ply}
-        ]
+        "pipeline": [{"type": "readers.las", "filename": input_laz}]
     }
-
     pipeline = pdal.Pipeline(json.dumps(pipeline_json))
     pipeline.execute()
-    print(f"Converted LAZ to PLY: {output_ply}")
+    arrays = pipeline.arrays[0]
+
+    x = arrays['X'].astype(np.float32)
+    y = arrays['Y'].astype(np.float32)
+    z = arrays['Z'].astype(np.float32)
+
+    # 🟥 Color fix: normalize if values > 255
+    def scale_color(c):
+        if c.max() > 255:
+            return (c / 256).clip(0, 255).astype(np.uint8)
+        else:
+            return c.astype(np.uint8)
+
+    if all(k in arrays.dtype.names for k in ['Red', 'Green', 'Blue']):
+        red = scale_color(arrays['Red'])
+        green = scale_color(arrays['Green'])
+        blue = scale_color(arrays['Blue'])
+    else:
+        red = green = blue = np.zeros_like(x, dtype=np.uint8)
+
+    vertex_data = np.empty(x.shape[0], dtype=[
+        ('x', 'f4'), ('y', 'f4'), ('z', 'f4'),
+        ('red', 'u1'), ('green', 'u1'), ('blue', 'u1')
+    ])
+    vertex_data['x'], vertex_data['y'], vertex_data['z'] = x, y, z
+    vertex_data['red'], vertex_data['green'], vertex_data['blue'] = red, green, blue
+
+    el = PlyElement.describe(vertex_data, 'vertex')
+    PlyData([el], text=False).write(output_ply)
+    print("✅ PLY with color written to:", output_ply)
 
 
-# Example usage
-convert_laz_to_ply(
-    "C:/Users/wangz/thesis/AULA_merge/AULA_merged.laz",
-    "C:/Users/wangz/thesis/AULA_merge/AULA_merged.ply"
-)
+
+
+if __name__ == "__main__":
+    laz_to_ply_pcl_style(
+        input_laz = "C:/Users/wangz/thesis/AULA_merge/AULA_building_separated.laz",
+        output_ply = "C:/Users/wangz/thesis/AULA_merge/AULA_sep.ply"
+    )

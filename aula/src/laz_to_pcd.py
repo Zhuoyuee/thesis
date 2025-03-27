@@ -8,7 +8,7 @@ def pack_rgb(red, green, blue):
     rgb = (red.astype(np.uint32) << 16) | (green.astype(np.uint32) << 8) | blue.astype(np.uint32)
     return np.frombuffer(rgb.astype(np.uint32).tobytes(), dtype=np.float32)
 
-def convert_laz_to_pcd(input_laz, output_pcd):
+def convert_laz_to_pcd_pcl_compatible(input_laz, output_pcd):
     # Step 1: Load LAZ
     pipeline_json = {
         "pipeline": [{"type": "readers.las", "filename": input_laz}]
@@ -46,8 +46,8 @@ def convert_laz_to_pcd(input_laz, output_pcd):
     o3d.io.write_point_cloud(output_pcd, pcd, write_ascii=False, compressed=False)
     print(f"✔ Exported with packed RGB: {output_pcd}")
 
-
-convert_laz_to_pcd(
-    input_laz="C:/Users/wangz/thesis/AULA_merge/AULA_merged.laz",
-    output_pcd="C:/Users/wangz/thesis/AULA_merge/AULA_merged.pcd"
+# Example usage
+convert_laz_to_pcd_pcl_compatible(
+    input_laz="C:/Users/wangz/thesis/AULA_merge/AULA_building_separated.laz",
+    output_pcd="C:/Users/wangz/thesis/AULA_merge/AULA_separated.pcd"
 )
