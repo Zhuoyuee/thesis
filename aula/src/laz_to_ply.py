@@ -48,8 +48,13 @@ def laz_to_ply_pcl_style(input_laz, output_ply):
 
 
 
-if __name__ == "__main__":
-    laz_to_ply_pcl_style(
-        input_laz = "C:/Users/wangz/thesis/AULA_merge/AULA_building_separated.laz",
-        output_ply = "C:/Users/wangz/thesis/AULA_merge/AULA_sep.ply"
+# if __name__ == "__main__":
+#     laz_to_ply_pcl_style(
+#         input_laz = "C:/Users/wangz/thesis/AULA_merge/AULA_building_separated.laz",
+#         output_ply = "C:/Users/wangz/thesis/AULA_merge/AULA_sep.ply"
+#     )
+#
+laz_to_ply_pcl_style(
+        input_laz = r"C:\Users\wangz\monastery\HK_clipped1.laz",
+        output_ply = "C:/Users/wangz/monastery\HK_clipped1.ply"
     )
