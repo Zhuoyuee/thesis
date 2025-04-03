@@ -149,7 +149,9 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="nAgL4a00uUSetXV4vr-E-5" value="&lt;p style=&quot;text-wrap-mode: nowrap; margin: 4px 0px 0px;&quot;&gt;&lt;b&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: nowrap; margin: 4px 0px 0px;&quot;&gt;&lt;b&gt;MaterialType&lt;/b&gt;&lt;/p&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="45" y="650" width="140" height="118" as="geometry" />
+          <mxGeometry x="45" y="650" width="140" height="172" as="geometry">
+            <mxRectangle x="45" y="650" width="140" height="50" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="nAgL4a00uUSetXV4vr-E-6" value="+ wood" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="nAgL4a00uUSetXV4vr-E-5">
           <mxGeometry y="40" width="140" height="26" as="geometry" />
@@ -158,7 +160,13 @@
           <mxGeometry y="66" width="140" height="26" as="geometry" />
         </mxCell>
         <mxCell id="nAgL4a00uUSetXV4vr-E-8" value="+ stone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="nAgL4a00uUSetXV4vr-E-5">
-          <mxGeometry y="92" width="140" height="26" as="geometry" />
+          <mxGeometry y="92" width="140" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="nAgL4a00uUSetXV4vr-E-10" value="+ concrete" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="nAgL4a00uUSetXV4vr-E-5">
+          <mxGeometry y="120" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="nAgL4a00uUSetXV4vr-E-9" value="+ metal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="nAgL4a00uUSetXV4vr-E-5">
+          <mxGeometry y="146" width="140" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
