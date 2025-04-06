@@ -54,7 +54,14 @@ def laz_to_ply_pcl_style(input_laz, output_ply):
 #         output_ply = "C:/Users/wangz/thesis/AULA_merge/AULA_sep.ply"
 #     )
 #
+# laz_to_ply_pcl_style(
+#         input_laz = r"C:\Users\wangz\monastery\HK_clipped1.laz",
+#         output_ply = "C:/Users/wangz/monastery\HK_clipped1.ply"
+#     )
+
+
+
 laz_to_ply_pcl_style(
-        input_laz = r"C:\Users\wangz\monastery\HK_clipped1.laz",
-        output_ply = "C:/Users/wangz/monastery\HK_clipped1.ply"
+        input_laz = r"C:\Users\wangz\thesis\AULA_merge\AULA_merged.laz",
+        output_ply = r"C:\Users\wangz\thesis\AULA_merge\AULA_clib_merged.ply"
     )

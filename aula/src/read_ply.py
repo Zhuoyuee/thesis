@@ -23,3 +23,4 @@ def inspect_ply(file_path):
 # inspect_ply(r"C:\Users\wangz\monastery\HK_points.ply")
 inspect_ply(r"C:\Users\wangz\monastery\HK_GS.ply")
 # inspect_ply(r"C:\Users\wangz\thesis\AULA_merge\AULA_sep.ply")
+#

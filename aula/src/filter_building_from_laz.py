@@ -20,7 +20,8 @@ If there is no prior coarse classification, use point cloud classification metho
 the other components. 
 '''
 
-def generate_building_polygon_from_laz (laz_path, buffer_distance=1.0, alpha=1.5, clustering_eps=2.0, min_samples=30):
+def generate_building_polygon_from_laz (laz_path, buffer_distance=1.0, alpha=1.5, clustering_eps=2.0, min_samples=30,
+                                        method = "alpha"):
     with laspy.open(laz_path) as file:
         las = file.read()
         x = las.x
@@ -28,7 +29,6 @@ def generate_building_polygon_from_laz (laz_path, buffer_distance=1.0, alpha=1.5
 
     coords = np.column_stack((x, y))
 
-    # 🧠 Looser DBSCAN to keep fragments together
     db = DBSCAN(eps=clustering_eps, min_samples=min_samples).fit(coords)
     labels = db.labels_
 
@@ -40,7 +40,12 @@ def generate_building_polygon_from_laz (laz_path, buffer_distance=1.0, alpha=1.5
         if len(cluster_points) < 100:  # Only filter extreme noise
             continue
 
-        shape = alphashape.alphashape(cluster_points, alpha)
+        if method == "alpha":
+            shape = alphashape.alphashape(cluster_points, alpha)
+        elif method == "convex":
+            shape = MultiPoint(cluster_points).convex_hull
+        else:
+            raise ValueError("Method must be 'alpha' or 'convex'")
         if shape and not shape.is_empty:
             if shape.geom_type == "Polygon":
                 shape = Polygon(shape.exterior)
@@ -94,21 +99,22 @@ building_polygons = generate_building_polygon_from_laz(
     buffer_distance=1.0,
     alpha=1.5,
     clustering_eps=2.0,
-    min_samples=30
+    min_samples=30,
+    method = "convex"
 )
 
 # Step 2: Separate top two buildings
 building1_wkt, building2_wkt = split_top_two_polygons(building_polygons)
 
 # Step 3: Clip each building separately
-clip_laz_by_polygon(
-    input_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_merged.laz",
-    polygon_wkt=building1_wkt,
-    output_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building3.laz"
-)
-
 # clip_laz_by_polygon(
 #     input_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_merged.laz",
-#     polygon_wkt=building2_wkt,
-#     output_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building2.laz"
+#     polygon_wkt=building1_wkt,
+#     output_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building3.laz"
 # )
+
+clip_laz_by_polygon(
+    input_laz=r"C:\Users\wangz\thesis\MLS_AULA_georeference_2.laz",
+    polygon_wkt=building1_wkt,
+    output_laz=r"C:\Users\wangz\thesis\AULA_merge\library_MLS.laz"
+)

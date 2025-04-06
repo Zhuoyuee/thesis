@@ -36,8 +36,8 @@ def clean_laz_with_3d_dbscan(input_laz, output_laz, eps=1.0, min_samples=30):
 
 
 clean_laz_with_3d_dbscan(
-    input_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building1.laz",
-    output_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building1_cleaned.laz",
+    input_laz=r"C:\Users\wangz\thesis\AULA_merge\lib_MLS_clipped.laz",
+    output_laz=r"C:\Users\wangz\thesis\AULA_merge\lib_cleaned.laz",
     eps=1.0,
     min_samples=30
 )

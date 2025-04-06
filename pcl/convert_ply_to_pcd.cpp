@@ -19,8 +19,10 @@ void convertPLYtoPCD(const char* inputFilename, const char* outputFilename) {
 
 // Main function that calls the conversion function with hardcoded paths
 int main() {
-    const char* inputPath = "/mnt/c/Users/wangz/thesis/AULA_merge/AULA_sep.ply";  // Specify the full path to the input file
-    const char* outputPath = "/mnt/c/Users/wangz/thesis/pcl/aula_sep.pcd";  // Specify the full path to the output file
+    //const char* inputPath = "/mnt/c/Users/wangz/thesis/AULA_merge/AULA_sep.ply";  // Specify the full path to the input file
+    //const char* outputPath = "/mnt/c/Users/wangz/thesis/pcl/aula_sep.pcd";  // Specify the full path to the output file
+    const char* inputPath = "/mnt/c/Users/wangz/monastery/HK_clipped1.ply";
+    const char* outputPath = "/mnt/c/Users/wangz/monastery/HK.pcd";
 
     convertPLYtoPCD(inputPath, outputPath);
     return 0;
