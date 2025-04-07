@@ -1,0 +1,17 @@
+# IntelliJ / PyCharm / CLion
+.idea/
+*.iml
+/shelf/
+/workspace.xml
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+
+# CMake / build artifacts
+**/cmake-build-debug/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/Makefile
+**/*.o
+**/*.obj
+**/*.log
