@@ -66,8 +66,14 @@ def clip_laz_polygon(input_laz: str, output_laz: str, points: list, z_min: float
 #     buffer_distance=0.05  # 5 cm
 # )
 
+# clip_laz_polygon(
+#     input_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building_separated.laz",
+#     output_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_clipped.laz",
+#     points=[(85343.11, 446409.72),(85319.41, 446471.17),(85433.36, 446524.02),(85458.38, 446456.23)],
+# )
 clip_laz_polygon(
-    input_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_building_separated.laz",
-    output_laz=r"C:\Users\wangz\thesis\AULA_merge\AULA_clipped.laz",
-    points=[(85343.11, 446409.72),(85319.41, 446471.17),(85433.36, 446524.02),(85458.38, 446456.23)],
+    input_laz=r"C:\Users\wangz\monastery\HK_clipped1.laz",
+    output_laz=r"C:\Users\wangz\monastery\HK_clipped2.laz",
+    points=[(-0.34, 2.03),(-0.75, 1.55),(-0.07, 0.99),(0.33, 1.48)],
+    buffer_distance = 0.05
 )

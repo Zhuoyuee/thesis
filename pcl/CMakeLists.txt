@@ -27,3 +27,9 @@ target_link_libraries(pcd_to_ply ${PCL_LIBRARIES})
 
 add_executable(downsampling downsampling.cpp)
 target_link_libraries(downsampling ${PCL_LIBRARIES})
+
+add_executable(RANSAC RANSAC.cpp)
+target_link_libraries(RANSAC ${PCL_LIBRARIES})
+
+add_executable(region_growth_normals region_growth_normals.cpp)
+target_link_libraries(region_growth_normals ${PCL_LIBRARIES})

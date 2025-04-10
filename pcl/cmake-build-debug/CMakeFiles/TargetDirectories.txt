@@ -3,5 +3,7 @@
 /mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/region_rgb_segmentation.dir
 /mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/pcd_to_ply.dir
 /mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/downsampling.dir
+/mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/RANSAC.dir
+/mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/region_growth_normals.dir
 /mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/edit_cache.dir
 /mnt/c/Users/wangz/thesis/thesis/pcl/cmake-build-debug/CMakeFiles/rebuild_cache.dir

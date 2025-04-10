@@ -181,6 +181,56 @@ downsampling/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/downsampling.dir/build.make CMakeFiles/downsampling.dir/build
 .PHONY : downsampling/fast
 
+#=============================================================================
+# Target rules for targets named RANSAC
+
+# Build rule for target.
+RANSAC: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RANSAC
+.PHONY : RANSAC
+
+# fast build rule for target.
+RANSAC/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RANSAC.dir/build.make CMakeFiles/RANSAC.dir/build
+.PHONY : RANSAC/fast
+
+#=============================================================================
+# Target rules for targets named region_growth_normals
+
+# Build rule for target.
+region_growth_normals: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 region_growth_normals
+.PHONY : region_growth_normals
+
+# fast build rule for target.
+region_growth_normals/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/region_growth_normals.dir/build.make CMakeFiles/region_growth_normals.dir/build
+.PHONY : region_growth_normals/fast
+
+RANSAC.o: RANSAC.cpp.o
+.PHONY : RANSAC.o
+
+# target to build an object file
+RANSAC.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RANSAC.dir/build.make CMakeFiles/RANSAC.dir/RANSAC.cpp.o
+.PHONY : RANSAC.cpp.o
+
+RANSAC.i: RANSAC.cpp.i
+.PHONY : RANSAC.i
+
+# target to preprocess a source file
+RANSAC.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RANSAC.dir/build.make CMakeFiles/RANSAC.dir/RANSAC.cpp.i
+.PHONY : RANSAC.cpp.i
+
+RANSAC.s: RANSAC.cpp.s
+.PHONY : RANSAC.s
+
+# target to generate assembly for a file
+RANSAC.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RANSAC.dir/build.make CMakeFiles/RANSAC.dir/RANSAC.cpp.s
+.PHONY : RANSAC.cpp.s
+
 convert_ply_to_pcd.o: convert_ply_to_pcd.cpp.o
 .PHONY : convert_ply_to_pcd.o
 
@@ -277,6 +327,30 @@ pcd_to_ply.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pcd_to_ply.dir/build.make CMakeFiles/pcd_to_ply.dir/pcd_to_ply.cpp.s
 .PHONY : pcd_to_ply.cpp.s
 
+region_growth_normals.o: region_growth_normals.cpp.o
+.PHONY : region_growth_normals.o
+
+# target to build an object file
+region_growth_normals.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/region_growth_normals.dir/build.make CMakeFiles/region_growth_normals.dir/region_growth_normals.cpp.o
+.PHONY : region_growth_normals.cpp.o
+
+region_growth_normals.i: region_growth_normals.cpp.i
+.PHONY : region_growth_normals.i
+
+# target to preprocess a source file
+region_growth_normals.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/region_growth_normals.dir/build.make CMakeFiles/region_growth_normals.dir/region_growth_normals.cpp.i
+.PHONY : region_growth_normals.cpp.i
+
+region_growth_normals.s: region_growth_normals.cpp.s
+.PHONY : region_growth_normals.s
+
+# target to generate assembly for a file
+region_growth_normals.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/region_growth_normals.dir/build.make CMakeFiles/region_growth_normals.dir/region_growth_normals.cpp.s
+.PHONY : region_growth_normals.cpp.s
+
 region_rgb_segmentation.o: region_rgb_segmentation.cpp.o
 .PHONY : region_rgb_segmentation.o
 
@@ -309,11 +383,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... RANSAC"
 	@echo "... convert_ply_to_pcd"
 	@echo "... downsampling"
 	@echo "... main"
 	@echo "... pcd_to_ply"
+	@echo "... region_growth_normals"
 	@echo "... region_rgb_segmentation"
+	@echo "... RANSAC.o"
+	@echo "... RANSAC.i"
+	@echo "... RANSAC.s"
 	@echo "... convert_ply_to_pcd.o"
 	@echo "... convert_ply_to_pcd.i"
 	@echo "... convert_ply_to_pcd.s"
@@ -326,6 +405,9 @@ help:
 	@echo "... pcd_to_ply.o"
 	@echo "... pcd_to_ply.i"
 	@echo "... pcd_to_ply.s"
+	@echo "... region_growth_normals.o"
+	@echo "... region_growth_normals.i"
+	@echo "... region_growth_normals.s"
 	@echo "... region_rgb_segmentation.o"
 	@echo "... region_rgb_segmentation.i"
 	@echo "... region_rgb_segmentation.s"
