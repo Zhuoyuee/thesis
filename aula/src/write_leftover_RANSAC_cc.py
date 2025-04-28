@@ -41,7 +41,7 @@ def assign_patch_id_from_neighbors(input_ply_path, output_ply_path, leftover_id=
     ply_element = PlyElement.describe(structured_array, 'vertex')
     PlyData([ply_element], text=True).write(output_ply_path)
 
-    print(f"✅ Leftover points reassigned and saved to: {output_ply_path}")
+    print(f" Leftover points reassigned and saved to: {output_ply_path}")
 
 
 assign_patch_id_from_neighbors(

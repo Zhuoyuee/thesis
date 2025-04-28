@@ -56,8 +56,8 @@ def clean_ply_id(input_ply_path, output_ply_path, output_legend_path):
     with open(output_legend_path, 'w') as f:
         json.dump(id_to_name, f, indent=2)
 
-    print(f"✅ Cleaned PLY saved: {output_ply_path}")
-    print(f"✅ Patch legend saved: {output_legend_path}")
+    print(f"Cleaned PLY saved: {output_ply_path}")
+    print(f"Patch legend saved: {output_legend_path}")
 
 # Example usage:
 # clean_and_export_ply_with_patch_id(

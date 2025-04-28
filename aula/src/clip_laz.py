@@ -39,7 +39,7 @@ def clip_laz_polygon(input_laz: str, output_laz: str, points: list, z_min: float
     pipeline = pdal.Pipeline(json.dumps(pipeline_json))
     pipeline.execute()
 
-    print(f"✅ Clipped to buffered polygon{' + Z range' if z_min is not None and z_max is not None else ''}. Saved to: {output_laz}")
+    print(f" Clipped to buffered polygon{' + Z range' if z_min is not None and z_max is not None else ''}. Saved to: {output_laz}")
 
 # clip_laz_3d(
 #     input_laz=r"C:\Users\wangz\monastery\HK_clipped.laz",

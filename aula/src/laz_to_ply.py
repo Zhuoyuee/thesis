@@ -43,7 +43,7 @@ def laz_to_ply_pcl_style(input_laz, output_ply):
 
     el = PlyElement.describe(vertex_data, 'vertex')
     PlyData([el], text=False).write(output_ply)
-    print("✅ PLY with color written to:", output_ply)
+    print("PLY with color written to:", output_ply)
 
 
 
@@ -54,14 +54,17 @@ def laz_to_ply_pcl_style(input_laz, output_ply):
 #         output_ply = "C:/Users/wangz/thesis/AULA_merge/AULA_sep.ply"
 #     )
 #
-laz_to_ply_pcl_style(
-        input_laz = r"C:\Users\wangz\monastery\HK_down_clean1.laz",
-        output_ply = "C:/Users/wangz/monastery\HK_down_clean.ply"
-    )
-
-
+# laz_to_ply_pcl_style(
+#         input_laz = r"C:\Users\wangz\monastery\HK_down_clean1.laz",
+#         output_ply = "C:/Users/wangz/monastery\HK_down_clean.ply"
+#     )
 
 # laz_to_ply_pcl_style(
-#         input_laz = r"C:\Users\wangz\thesis\AULA_merge\AULA_merged.laz",
-#         output_ply = r"C:\Users\wangz\thesis\AULA_merge\AULA_clib_merged.ply"
+#         input_laz = r"C:\Users\wangz\thesis\AULA_merge\AULA_clippep_down.laz",
+#         output_ply = r"C:\Users\wangz\thesis\AULA_merge\AULA_clippep_clean.ply"
 #     )
+
+laz_to_ply_pcl_style(
+        input_laz = r"C:\Users\wangz\thesis\AULA_merge\lib_MLS_clipped.laz",
+        output_ply = r"C:\Users\wangz\thesis\AULA_merge\lib_clipped.ply"
+    )

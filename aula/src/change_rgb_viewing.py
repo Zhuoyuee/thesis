@@ -38,7 +38,9 @@ def color_points_by_cluster(input_ply_path, output_ply_path, id_column='patch_id
     array = np.array([tuple(row) for row in df.to_numpy()], dtype=dtype)
     PlyData([PlyElement.describe(array, 'vertex')], text=True).write(output_ply_path)
 
-    print(f"✅ Colorized point cloud saved to: {output_ply_path}")
+    print(f" Colorized point cloud saved to: {output_ply_path}")
 
 # Example usage:
-color_points_by_cluster(r"C:\Users\wangz\monastery\phone_scan\HK_phone_id.ply", r"C:\Users\wangz\monastery\phone_scan\HK_phone_id_viewer.ply")
+# color_points_by_cluster(r"C:\Users\wangz\monastery\phone_scan\HK_phone_id.ply", r"C:\Users\wangz\monastery\phone_scan\HK_phone_id_viewer.ply")
+
+color_points_by_cluster(r"C:\Users\wangz\monastery\phone_scan\HK_id_refined.ply", r"C:\Users\wangz\monastery\phone_scan\HK_refined_viewer.ply")

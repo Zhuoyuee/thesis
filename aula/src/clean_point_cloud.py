@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.cluster import DBSCAN
 
 def clean_laz_with_3d_dbscan(input_laz, output_laz, eps=1.0, min_samples=30):
-    # Load .laz
+    # failed for the library
     with laspy.open(input_laz) as file:
         las = file.read()
         x = las.x

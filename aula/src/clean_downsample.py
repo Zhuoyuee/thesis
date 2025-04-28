@@ -41,4 +41,6 @@ def clean_and_downsample(input_laz, output_laz,
 
 
 
-clean_and_downsample(r"C:\Users\wangz\thesis\AULA_merge\AULA_clipped.laz", r"C:\Users\wangz\thesis\AULA_merge\AULA_clippep_down.laz")
+# clean_and_downsample(r"C:\Users\wangz\thesis\AULA_merge\AULA_clipped.laz", r"C:\Users\wangz\thesis\AULA_merge\AULA_clippep_down.laz")
+
+clean_and_downsample(r"C:\Users\wangz\thesis\AULA_merge\lib_MLS_clipped.laz", r"C:\Users\wangz\thesis\AULA_merge\lib_clean.laz")
