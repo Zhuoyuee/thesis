@@ -43,4 +43,5 @@ def color_points_by_cluster(input_ply_path, output_ply_path, id_column='patch_id
 # Example usage:
 # color_points_by_cluster(r"C:\Users\wangz\monastery\phone_scan\HK_phone_id.ply", r"C:\Users\wangz\monastery\phone_scan\HK_phone_id_viewer.ply")
 
-color_points_by_cluster(r"C:\Users\wangz\monastery\phone_scan\HK_id_refined.ply", r"C:\Users\wangz\monastery\phone_scan\HK_refined_viewer.ply")
+#
+color_points_by_cluster(r"C:\Users\wangz\Documents\spc_aula\aula_patchid.ply", r"C:\Users\wangz\Documents\spc_aula\aula_patcj_color_view.ply")

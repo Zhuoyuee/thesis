@@ -22,6 +22,7 @@ def inspect_ply(file_path):
 # Replace with your actual paths
 # inspect_ply(r"C:\Users\wangz\monastery\HK_points.ply")
 # inspect_ply(r"C:\Users\wangz\monastery\HK_GS.ply")
-inspect_ply(r"C:\Users\wangz\monastery\phone_scan\HK_pc_phone.ply")
+# inspect_ply(r"C:\Users\wangz\monastery\phone_scan\HK_pc_phone.ply")
 # inspect_ply(r"C:\Users\wangz\thesis\AULA_merge\AULA_sep.ply")
-#
+
+inspect_ply(r"C:\Users\wangz\Documents\spc_viewer\spc_viewer\public\aula_patchid.ply")
