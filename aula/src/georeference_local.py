@@ -18,7 +18,9 @@ z: local 0.17 -0.455 NAP
 import pdal
 import json
 
-def transform_laz_with_pdal(input_file, output_file):
+'only for laz/las'
+
+def transform_laz_with_pdal(input_file, output_file, matrix):
     pipeline_json = {
         "pipeline": [
             {
@@ -27,7 +29,7 @@ def transform_laz_with_pdal(input_file, output_file):
             },
             {
                 "type": "filters.transformation",
-                "matrix": "0.870089 0.490798 0 85589.92 -0.489936 0.868996 0 446476.01 0 0 1 -0.625 0 0 0 1"
+                "matrix": matrix
             },
             {
                 "type": "writers.las",
@@ -41,5 +43,5 @@ def transform_laz_with_pdal(input_file, output_file):
     pipeline.execute()
     print("Transformation applied and saved to:", output_file)
 
-# Run transformation
-transform_laz_with_pdal("C:/Users/wangz/thesis/MLS_AULA.laz", "C:/Users/wangz/thesis/MLS_AULA_georeference.laz")
+if __name__ == "__main__":
+    transform_laz_with_pdal("C:/Users/wangz/thesis/MLS_AULA.laz", "C:/Users/wangz/thesis/MLS_AULA_georeference.laz", matrix="0.870089 0.490798 0 85589.92 -0.489936 0.868996 0 446476.01 0 0 1 -0.625 0 0 0 1")
